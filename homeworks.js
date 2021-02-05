@@ -50,7 +50,7 @@ me.skills.pop();
 /* Ex.1
     Write the function dice that randomize an integer number between 1 and 6.
 */
-
+const dice = () => Math.floor(Math.random() * 6 + 1);
 /* Ex.2 
     Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
 */
