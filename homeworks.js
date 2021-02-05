@@ -164,9 +164,20 @@ const isThisAnEmail = (string) => {
   // somechar@someother.com
   // first mandatory conditions: must have @ and a .
   // need to check if we have an @ preceded by chars, followed by chars
-  // then need to check if the chars after @ got a .something
   // firstPart @ secondPart . thirdPart
-  //loop and check mandatory conditions
+  //loop and check mandatory conditions and if there are other non alphabetic chars
+
+  function isValidMailChar(char) {
+    const validMailChars = 'abcdefghijklmnopqrstuvwxyz@.0123456789';
+    let counter = 0;
+    // loop through valid chars, if it's === to anyone of them increment counter
+    for (const validChar of validMailChars) {
+      if (char === validChar) counter++;
+    }
+    // if counter > 0 the char is valid
+    return counter > 0 ? true : false;
+  }
+
   let k = 0,
     j = 0;
   for (let i = 0; i < string.length; i++) {
@@ -174,18 +185,56 @@ const isThisAnEmail = (string) => {
     const char = string[i];
     if (char === '@') k++;
     if (char === '.') j++;
+    // check if the char is a valid mail char
+    if (!isValidMailChar(char)) return false;
   }
-  if (k !== 1 && j !== 1) return false;
-  console.log(k, j);
+  // check if there are chars before @
+  if (string.slice(0, string.indexOf('@')) === '') return false;
+
+  //check if there are chars between @ and .
+  const sliceBetween = string.slice(
+    string.indexOf('@') + 1,
+    string.indexOf('.')
+  );
+  if (sliceBetween === '') return false;
+
+  // check if there are nums after the @ù
+  // a char is a num if isNaN(parseInt(char)) === false
+  if (
+    string
+      .slice(string.indexOf('@'))
+      .split('')
+      .some((char) => isNaN(parseInt(char)) === false)
+  )
+    return false;
+
+  if (string.indexOf('.') < string.indexOf('@'))
+    // the @ must come before the dot
+    return false;
+
+  // check if we have exaclty one of each
+  if (k !== 1 || j !== 1) return false;
+
+  //every other case is valid
+  return true;
 };
-console.log(isThisAnEmail('dadasd@sff.da'));
-console.log(isThisAnEmail('342sff@asfsa,ti'));
+
+console.log(isThisAnEmail('dasd@.da'));
+console.log(isThisAnEmail('dasds@ff.da'));
+console.log(isThisAnEmail('dada.sd@sfda'));
+console.log(isThisAnEmail('dadadasd@ff.ad'));
+console.log(isThisAnEmail('dadadasd@ff.ad'));
 console.log(isThisAnEmail(',,fafiaf@dad,sd'));
+console.log(isThisAnEmail(',,fafiaf@dad,.sd'));
 
 /* Ex.7
    Write the function whatDayIsIt that should return the current day of the week.
 */
-
+const whatDayIsIt = () =>
+  ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'].find(
+    (_, idx) => idx === new Date().getDay() - 1
+  );
+console.log(whatDayIsIt());
 /* Ex.8
     Write the function rollTheDices that receives a numeric input.
     It should use the Dice function defined in Ex1 and return an object that contains both the sum of all values extracted and the single values of the dicerolls themselves.
