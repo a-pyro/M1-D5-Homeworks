@@ -14,30 +14,37 @@
 /* Ex.A
    Create a variable test that contains a string.
 */
-
+const test = 'string';
 /* Ex.B
     Create a variable sum that contains the result of the sum between 10 and 20.
 */
-
+const sum = 10 + 20;
 /* Ex.C 
     Create a variable random that contains a random number between 0 and 20 (should be randomly created at each execution).
 */
-
+const random = Math.floor(Math.random() * 21);
 /* Ex.D
     Create a variable me containing and object with the current information: name = your name, surname = your surname, age = your age.
 */
-
+const me = {
+  name: 'ardi',
+  surname: 'germenji',
+  age: '31',
+  other: '🔥',
+};
 /* Ex.E 
     Programmatically remove the age property from the previously create object.
 */
-
+delete me.age;
 /* Ex.F 
    Programmatically add to the object me an array "skills" that contains the programming languages that you know.
 */
-
+me.skills = ['javascript', 'html', 'css', 'bootstrap'];
 /* Ex.G 
    Programmatically remove the last skill from the array "skills" inside of the "me" object.
 */
+
+me.skills.pop();
 
 // JS Functions
 /* Ex.1
