@@ -188,6 +188,9 @@ const isThisAnEmail = (string) => {
     // check if the char is a valid mail char
     if (!isValidMailChar(char)) return false;
   }
+  // check if we have exaclty one of each
+  if (k !== 1 || j !== 1) return false;
+
   // check if there are chars before @
   if (string.slice(0, string.indexOf('@')) === '') return false;
 
@@ -198,7 +201,7 @@ const isThisAnEmail = (string) => {
   );
   if (sliceBetween === '') return false;
 
-  // check if there are nums after the @ù
+  // check if there are nums after the @
   // a char is a num if isNaN(parseInt(char)) === false
   if (
     string
@@ -211,9 +214,6 @@ const isThisAnEmail = (string) => {
   if (string.indexOf('.') < string.indexOf('@'))
     // the @ must come before the dot
     return false;
-
-  // check if we have exaclty one of each
-  if (k !== 1 || j !== 1) return false;
 
   //every other case is valid
   return true;
