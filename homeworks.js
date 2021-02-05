@@ -492,6 +492,7 @@ const deleteX = (arr, n) => arr.splice(n, 1);
 */
 const halfTree = (height) =>
   [...Array(height)].map((_, idx) => '*'.repeat(idx + 1)).join('\n');
+
 // console.log(halfTree(1));
 // console.log(halfTree(3));
 // console.log(halfTree(4));
@@ -514,7 +515,7 @@ const tree = (height) =>
         ' '.repeat((height * 2 - 1 - (idx * 2 + 1)) / 2)
     )
     .join('\n');
-// console.log(tree(5));
+console.log(tree(5));
 /* Ex.23
   Create a function isItPrime that receives a number and returns true if the number is a prime number.
 */
