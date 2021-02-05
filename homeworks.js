@@ -243,14 +243,44 @@ console.log(whatDayIsIt());
         values: [ 3, 3, 4]
     }
 */
+function rollTheDices(num) {
+  const values = [...Array(num)].map((el) => (el = dice()));
+  const sum = values.reduce((acc, cv) => acc + cv);
+  return {
+    values,
+    sum,
+  };
+}
 
+console.log(rollTheDices(5));
 /* Ex.9
    Write the function howManyDays that receives a date and returns the number of days that has passed since that day.
 */
 
+// new date () is now => - the new Date(target) => days in milliseconds / 1 day in milliseconds
+const howManyDays = (date) =>
+  Math.floor((new Date() - new Date(date)) / 86400000);
+
+console.log(howManyDays('2-5-2021'));
+console.log(howManyDays('2-4-2021'));
+console.log(howManyDays('2-3-2021'));
+console.log(howManyDays('1-31-2021'));
+
 /* Ex.10
    Write the function isTodayMyBDay that returns true if it's your birthday, false otherwise.
 */
+
+const isTodayMyBDay = (bdayDate) => {
+  const bday = new Date(bdayDate);
+  const day = bday.getDay();
+  const month = bday.getMonth();
+  const now = new Date();
+  const nowDay = now.getDay();
+  const nowMonth = now.getMonth();
+  return day === nowDay && month === nowMonth;
+};
+
+console.log(isTodayMyBDay('2-5-2021'));
 
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of the file!
