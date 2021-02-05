@@ -63,7 +63,7 @@ const dice = () => Math.floor(Math.random() * 6 + 1);
 // }
 
 /* Ex.2 
-    Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
+    // Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
 */
 
 const whoIsBigger = (num1, num2) => (num1 > num2 ? num1 : num2);
@@ -104,8 +104,8 @@ const splitMe = (string) => {
 };
 const splitMeFaster = (string) => string.split(' ');
 
-console.log(splitMe('i love coding and solving problems 🚀'));
-console.log(splitMeFaster('i love coding and solving problems 🚀'));
+// console.log(splitMe('i love coding and solving problems 🚀'));
+// console.log(splitMeFaster('i love coding and solving problems 🚀'));
 /* Ex.4
     Write the function deleteOne that receives a string and a boolean. If the boolean is true it should return the string without the first letter, otherwise it should remove the last one.
 */
@@ -131,10 +131,10 @@ const deleteOne = (string, bool) => {
 const deleteOneFaster = (string, bool) =>
   bool ? string.slice(1) : string.slice(0, -1);
 
-console.log(deleteOne('ciaobelli', true));
-console.log(deleteOne('ciaobelli', false));
-console.log(deleteOneFaster('ciaobelli', true));
-console.log(deleteOneFaster('ciaobelli', false));
+// console.log(deleteOne('ciaobelli', true));
+// console.log(deleteOne('ciaobelli', false));
+// console.log(deleteOneFaster('ciaobelli', true));
+// console.log(deleteOneFaster('ciaobelli', false));
 
 /* Ex.5
    Write the function onlyLetters that receives a string, removes all the numbers and returns it.
@@ -153,8 +153,8 @@ const onlyLetters = (string) => {
 };
 
 const onlyLettersFaster = (string) => string.replace(/\d/gi, '');
-console.log(onlyLetters('I l34634ove 123 whate4636ver'));
-console.log(onlyLettersFaster('I love 12103 whatev23423er'));
+// console.log(onlyLetters('I l34634ove 123 whate4636ver'));
+// console.log(onlyLettersFaster('I love 12103 whatev23423er'));
 
 /* Ex.6 
    Write the function isThisAnEmail that receives a string and returns true if the string is a valid email.
@@ -219,13 +219,13 @@ const isThisAnEmail = (string) => {
   return true;
 };
 
-console.log(isThisAnEmail('dasd@.da'));
-console.log(isThisAnEmail('dasds@ff.da'));
-console.log(isThisAnEmail('dada.sd@sfda'));
-console.log(isThisAnEmail('dadadasd@ff.ad'));
-console.log(isThisAnEmail('dadadasd@ff.ad'));
-console.log(isThisAnEmail(',,fafiaf@dad,sd'));
-console.log(isThisAnEmail(',,fafiaf@dad,.sd'));
+// console.log(isThisAnEmail('dasd@.da'));
+// console.log(isThisAnEmail('dasds@ff.da'));
+// console.log(isThisAnEmail('dada.sd@sfda'));
+// console.log(isThisAnEmail('dadadasd@ff.ad'));
+// console.log(isThisAnEmail('dadadasd@ff.ad'));
+// console.log(isThisAnEmail(',,fafiaf@dad,sd'));
+// console.log(isThisAnEmail(',,fafiaf@dad,.sd'));
 
 /* Ex.7
    Write the function whatDayIsIt that should return the current day of the week.
@@ -234,7 +234,7 @@ const whatDayIsIt = () =>
   ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun'].find(
     (_, idx) => idx === new Date().getDay() - 1
   );
-console.log(whatDayIsIt());
+// console.log(whatDayIsIt());
 /* Ex.8
     Write the function rollTheDices that receives a numeric input.
     It should use the Dice function defined in Ex1 and return an object that contains both the sum of all values extracted and the single values of the dicerolls themselves.
@@ -252,7 +252,7 @@ function rollTheDices(num) {
   };
 }
 
-console.log(rollTheDices(5));
+// console.log(rollTheDices(5));
 /* Ex.9
    Write the function howManyDays that receives a date and returns the number of days that has passed since that day.
 */
@@ -261,10 +261,10 @@ console.log(rollTheDices(5));
 const howManyDays = (date) =>
   Math.floor((new Date() - new Date(date)) / 86400000);
 
-console.log(howManyDays('2-5-2021'));
-console.log(howManyDays('2-4-2021'));
-console.log(howManyDays('2-3-2021'));
-console.log(howManyDays('1-31-2021'));
+// console.log(howManyDays('2-5-2021'));
+// console.log(howManyDays('2-4-2021'));
+// console.log(howManyDays('2-3-2021'));
+// console.log(howManyDays('1-31-2021'));
 
 /* Ex.10
    Write the function isTodayMyBDay that returns true if it's your birthday, false otherwise.
@@ -280,7 +280,7 @@ const isTodayMyBDay = (bdayDate) => {
   return day === nowDay && month === nowMonth;
 };
 
-console.log(isTodayMyBDay('2-5-2021'));
+// console.log(isTodayMyBDay('2-5-2021'));
 const movies = [
   {
     Title: 'The Lord of the Rings: The Fellowship of the Ring',
@@ -405,7 +405,7 @@ const deleteProp = (obj, str) => {
   delete obj[str];
   return obj;
 };
-console.log(deleteProp({ greet: 'hi', aRocket: '🚀' }, 'greet'));
+// console.log(deleteProp({ greet: 'hi', aRocket: '🚀' }, 'greet'));
 
 /* Ex.12 
     Write the function olderMovie that finds the older movie in the array.
@@ -415,25 +415,25 @@ console.log(deleteProp({ greet: 'hi', aRocket: '🚀' }, 'greet'));
 //   arr.sort((a, b) => parseInt(a.Year) - parseInt(b.Year))[0].Year];
 const olderMovie = (movies) =>
   movies.sort((a, b) => parseInt(a.Year) - parseInt(b.Year))[0].Title;
-console.log(olderMovie(movies));
+// console.log(olderMovie(movies));
 
 /* Ex.13
     Write the function countMovies that returns the number of movies into the array.
 */
 const countMovies = (movies) => movies.length;
-console.log(countMovies(movies));
+// console.log(countMovies(movies));
 /* Ex.14
     Write the function onlyTitles that creates an array with only the titles of the movies.
 */
 const onlyTitles = (movies) => movies.map((movie) => movie.Title);
-console.log(onlyTitles(movies));
+// console.log(onlyTitles(movies));
 /* Ex.15
    Write the function onlyThisMillennium that returns only the movies produced in this millennium.
 */
 const onlyThisMillennium = (movies) =>
   movies.filter((movie) => parseInt(movie.Year) >= 2000);
 
-console.log(onlyThisMillennium(movies));
+// console.log(onlyThisMillennium(movies));
 /* Ex.16 
     Write the function getMovieById that receives an id and returns the movie with the given id.
 */
@@ -441,14 +441,14 @@ const getMovieById = (movies, id) =>
   movies.find((movie) => movie.imdbID.toLowerCase() === id.toLowerCase()) ??
   'Not found';
 
-console.log(getMovieById(movies, 'dsd4'));
-console.log(getMovieById(movies, 'tt4154756'));
+// console.log(getMovieById(movies, 'dsd4'));
+// console.log(getMovieById(movies, 'tt4154756'));
 /* Ex.17
     Write the function sumYears that returns the sum of the years the movie has been produced.
 */
 const sumYears = (movies) =>
   movies.reduce((acc, cv) => acc + parseInt(cv.Year), 0);
-console.log(sumYears(movies));
+// console.log(sumYears(movies));
 /* Ex.18
     Write the function searchMovie that receives a string and returns all the movies with that string in the title.
 */
@@ -456,9 +456,9 @@ const searchMovie = (movies, string) =>
   movies.filter((movie) =>
     movie.Title.toLowerCase().includes(string.toLowerCase())
   ) ?? 'Not Found';
-console.log(searchMovie(movies, 'fli'));
-console.log(searchMovie(movies, 'avenger'));
-console.log(searchMovie(movies, 'lord'));
+// console.log(searchMovie(movies, 'fli'));
+// console.log(searchMovie(movies, 'avenger'));
+// console.log(searchMovie(movies, 'lord'));
 /* Ex.19
     Write the function searchAndDivide that receives a string and "returns an object" with an array "match" with all the movies that contains the given string in the title, and another array "nonMatch" with all the other movies.
 */
@@ -471,8 +471,8 @@ const searchAndDivide = (movies, string) => ({
   ],
 });
 
-console.log(searchAndDivide(movies, 'fli'));
-console.log(searchAndDivide(movies, 'avengers'));
+// console.log(searchAndDivide(movies, 'fli'));
+// console.log(searchAndDivide(movies, 'avengers'));
 
 /* Ex.20
    Write the function deleteX that receives a number and returns an array without the element in the given position.
@@ -492,10 +492,10 @@ const deleteX = (arr, n) => arr.splice(n, 1);
 */
 const halfTree = (height) =>
   [...Array(height)].map((_, idx) => '*'.repeat(idx + 1)).join('\n');
-console.log(halfTree(1));
-console.log(halfTree(3));
-console.log(halfTree(4));
-console.log(halfTree(6));
+// console.log(halfTree(1));
+// console.log(halfTree(3));
+// console.log(halfTree(4));
+// console.log(halfTree(6));
 
 /* Ex.22 
   Create a function tree that receives the height and creates an "*" tree with that height.
@@ -514,7 +514,7 @@ const tree = (height) =>
         ' '.repeat((height * 2 - 1 - (idx * 2 + 1)) / 2)
     )
     .join('\n');
-console.log(tree(5));
+// console.log(tree(5));
 /* Ex.23
   Create a function isItPrime that receives a number and returns true if the number is a prime number.
 */
