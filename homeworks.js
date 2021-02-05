@@ -63,7 +63,7 @@ const dice = () => Math.floor(Math.random() * 6 + 1);
 // }
 
 /* Ex.2 
-    // Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
+    Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
 */
 
 const whoIsBigger = (num1, num2) => (num1 > num2 ? num1 : num2);
