@@ -8,6 +8,13 @@
     - Complete as many exercise that you can
     - Publish them into your own GitHub account and upload repository link on Eduflow before 16.30 (Berlin Time) 
 */
+//Fixes spaces, new lines created by hitting enter and tabs from code editor
+const fancyLiteral = (literal) => {
+  return literal
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n');
+};
 
 //JS Basics
 
@@ -51,15 +58,53 @@ me.skills.pop();
     Write the function dice that randomize an integer number between 1 and 6.
 */
 const dice = () => Math.floor(Math.random() * 6 + 1);
+// for (let i = 0; i < 100; i++) {
+// console.log(dice());
+// }
+
 /* Ex.2 
     Write the function whoIsBigger that receives 2 numbers and returns the bigger of the two.
 */
 
+const whoIsBigger = (num1, num2) => (num1 > num2 ? num1 : num2);
+for (let i = 0; i < 10; i++) {
+  const num1 = dice();
+  const num2 = dice();
+  console.log(
+    fancyLiteral(`
+  num1: ${num1}
+  num2: ${num2}
+  the bigger is: ${whoIsBigger(num1, num2)}
+  `)
+  );
+}
 /* Ex.3
     Write the function splitMe that receives a string and returns an array with every word in that string.
     Ex. splitMe("I love coding") => returns [ "I","Love","Coding"]
 */
+const splitMe = (string) => {
+  const arr = [];
+  let word = '';
+  for (let i = 0; i < string.length; i++) {
+    const letter = string[i];
+    //se letter === space => push the world
 
+    if (letter === ' ') {
+      arr.push(word);
+      word = '';
+    } else {
+      //se letter !== space => add to the word
+
+      word += letter;
+    }
+    //check in order to push the last word
+    if (i === string.length - 1) arr.push(word);
+  }
+  return arr;
+};
+const splitMeFaster = (string) => string.split(' ');
+
+console.log(splitMe('i love coding and solving problems 🚀'));
 /* Ex.4
     Write the function deleteOne that receives a string and a boolean. If the boolean is true it should return the string without the first letter, otherwise it should remove the last one.
 */
