@@ -105,18 +105,82 @@ const splitMe = (string) => {
 const splitMeFaster = (string) => string.split(' ');
 
 console.log(splitMe('i love coding and solving problems 🚀'));
+console.log(splitMeFaster('i love coding and solving problems 🚀'));
 /* Ex.4
     Write the function deleteOne that receives a string and a boolean. If the boolean is true it should return the string without the first letter, otherwise it should remove the last one.
 */
+
+const deleteOne = (string, bool) => {
+  //funzione per troncare in base all'indice
+  const truncate = (string, indexToTrunc) => {
+    let truncated = '';
+    for (let i = 0; i < string.length; i++) {
+      const letter = string[i];
+      if (i === indexToTrunc) continue;
+      truncated += letter;
+    }
+    return truncated;
+  };
+
+  if (bool) {
+    return truncate(string, 0);
+  } else {
+    return truncate(string, string.length - 1);
+  }
+};
+const deleteOneFaster = (string, bool) =>
+  bool ? string.slice(1) : string.slice(0, -1);
+
+console.log(deleteOne('ciaobelli', true));
+console.log(deleteOne('ciaobelli', false));
+console.log(deleteOneFaster('ciaobelli', true));
+console.log(deleteOneFaster('ciaobelli', false));
 
 /* Ex.5
    Write the function onlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: onlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
 
+const onlyLetters = (string) => {
+  let letters = '';
+  for (let i = 0; i < string.length; i++) {
+    const character = string[i];
+    //try to covert the char in string => if it returns NaN the charc is a letter
+    // so concatenate
+    if (isNaN(parseInt(character))) letters += character;
+  }
+  return letters;
+};
+
+const onlyLettersFaster = (string) => string.replace(/\d/gi, '');
+console.log(onlyLetters('I l34634ove 123 whate4636ver'));
+console.log(onlyLettersFaster('I love 12103 whatev23423er'));
+
 /* Ex.6 
    Write the function isThisAnEmail that receives a string and returns true if the string is a valid email.
 */
+const isThisAnEmail = (string) => {
+  //what is a valid email?
+  // somechar@someother.com
+  // first mandatory conditions: must have @ and a .
+  // need to check if we have an @ preceded by chars, followed by chars
+  // then need to check if the chars after @ got a .something
+  // firstPart @ secondPart . thirdPart
+  //loop and check mandatory conditions
+  let k = 0,
+    j = 0;
+  for (let i = 0; i < string.length; i++) {
+    //check if we have exactly one @ and one .
+    const char = string[i];
+    if (char === '@') k++;
+    if (char === '.') j++;
+  }
+  if (k !== 1 && j !== 1) return false;
+  console.log(k, j);
+};
+console.log(isThisAnEmail('dadasd@sff.da'));
+console.log(isThisAnEmail('342sff@asfsa,ti'));
+console.log(isThisAnEmail(',,fafiaf@dad,sd'));
 
 /* Ex.7
    Write the function whatDayIsIt that should return the current day of the week.
