@@ -156,7 +156,7 @@ const onlyLettersFaster = (string) => string.replace(/\d/gi, '');
 const onlyLettersFaster2 = (string) => {
   return string
     .split('')
-    .filter((char) => typeof parseFloat(char) !== 'number')
+    .filter((char) => isNaN(parseFloat(char)))
     .join('');
 };
 // console.log(onlyLetters('I l34634ove 123 whate4636ver'));
@@ -251,7 +251,7 @@ const whatDayIsIt = () =>
     }
 */
 function rollTheDices(num) {
-  const values = [...Array(num)].map((el) => (el = dice()));
+  const values = [...Array(num)].map((_) => (el = dice()));
   const sum = values.reduce((acc, cv) => acc + cv);
   return {
     values,
@@ -260,6 +260,7 @@ function rollTheDices(num) {
 }
 
 // console.log(rollTheDices(5));
+// console.log(rollTheDices(10));
 /* Ex.9
    Write the function howManyDays that receives a date and returns the number of days that has passed since that day.
 */
