@@ -153,8 +153,15 @@ const onlyLetters = (string) => {
 };
 
 const onlyLettersFaster = (string) => string.replace(/\d/gi, '');
+const onlyLettersFaster2 = (string) => {
+  return string
+    .split('')
+    .filter((char) => typeof parseFloat(char) !== 'number')
+    .join('');
+};
 // console.log(onlyLetters('I l34634ove 123 whate4636ver'));
 // console.log(onlyLettersFaster('I love 12103 whatev23423er'));
+console.log(onlyLettersFaster2('I love 12103 whatev23423er'));
 
 /* Ex.6 
    Write the function isThisAnEmail that receives a string and returns true if the string is a valid email.
