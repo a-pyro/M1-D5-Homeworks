@@ -1,5 +1,3 @@
-//this a new branch!
-
 /*
     ASSIGNMENT RULES
     - All the answers must be in JavaScript
