@@ -67,6 +67,7 @@ const dice = () => Math.floor(Math.random() * 6 + 1);
 */
 
 const whoIsBigger = (num1, num2) => (num1 > num2 ? num1 : num2);
+
 for (let i = 0; i < 10; i++) {
   const num1 = dice();
   const num2 = dice();
